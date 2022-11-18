@@ -62,13 +62,21 @@ function calcoloPrezzi (ore, lavoro){
 }
 
 function sconto (codiciSconto, codiceUtente){
+    if (document.getElementById("codiceSconto").value != ""){
+
+    
 
     for (let element of codiciSconto ){
 
         if (element == codiceUtente){
+            document.getElementById("codiceSconto").classList.remove("text-danger");
             return true
         }
     }
 
+    document.getElementById("codiceSconto").classList.add("text-danger");
+
+    }
+    
     return false
 }
