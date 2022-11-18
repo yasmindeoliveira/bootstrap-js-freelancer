@@ -70,6 +70,8 @@ function sconto (codiciSconto, codiceUtente){
 
         if (element == codiceUtente){
             document.getElementById("codiceSconto").classList.remove("text-danger");
+            let index = codiciSconto.indexOf(element);
+            codiciSconto.splice(index,1);
             return true
         }
     }
@@ -77,6 +79,6 @@ function sconto (codiciSconto, codiceUtente){
     document.getElementById("codiceSconto").classList.add("text-danger");
 
     }
-    
+
     return false
 }
