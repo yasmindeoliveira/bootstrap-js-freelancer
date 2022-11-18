@@ -9,11 +9,27 @@ Se poi l’utente inserisce un codice promozionale tra i seguenti YHDNU32, JANJC
 Se il codice inserito non è valido, informate l’utente che il codice è sbagliato e calcolate il prezzo finale senza applicare sconti.
 Mostrare il risultato del calcolo del prezzo finale in una “forma umana” in un apposito tag HTML appena sotto il bottone send.
 */
+let codiciSconto = ["YHDNU32", "JANJC63", "PWKCN25", "SJDPO96", "POCIE24"];
+
 
 function submitForm(event){
     event.preventDefault();
 
-    calcoloLavoro();
+    let lavoro = calcoloLavoro();
+    let ore = document.getElementById("ore").value;
+    let prezzoIntero = calcoloPrezzi(ore, lavoro);
+    let scontoUtente = document.getElementById("codiceSconto").value;
+    let isSconto = sconto(codiciSconto, scontoUtente);
+    let prezzoFinale
+
+    if (isSconto){
+        prezzoFinale = prezzoIntero * 0.75
+    } else {
+        prezzoFinale = prezzoIntero
+    }
+
+    document.getElementById("prezzoTotale").innerHTML = "Il prezzo totale è: " + prezzoFinale + "€";
+
 }
 
 function calcoloLavoro (){
@@ -32,10 +48,9 @@ function calcoloLavoro (){
         case 3:
             work = 33.6;
             break;
+    };
 
-        };
-
-    console.log(work);
+    return work
     
 }
 
@@ -43,10 +58,17 @@ function calcoloLavoro (){
 function calcoloPrezzi (ore, lavoro){
 
     prezzo = ore*lavoro;
-    return prezzo.tofixed(2)
+    return prezzo.toFixed(2)
 }
 
-function sconto (){
+function sconto (codiciSconto, codiceUtente){
 
+    for (let element of codiciSconto ){
 
+        if (element == codiceUtente){
+            return true
+        }
+    }
+
+    return false
 }
