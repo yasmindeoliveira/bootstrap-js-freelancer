@@ -11,6 +11,68 @@ Mostrare il risultato del calcolo del prezzo finale in una “forma umana” in 
 */
 let codiciSconto = ["YHDNU32", "JANJC63", "PWKCN25", "SJDPO96", "POCIE24"];
 
+let portfolioCard = [
+    {
+        name: "Cabin Website",
+        photo: "./assets/cabin.png"
+    },
+    {
+        name: "Cake Website",
+        photo: "./assets/cake.png"
+    },
+    {
+        name: "Circus Website",
+        photo: "./assets/circus.png"
+    },
+    {
+        name: "Game Website",
+        photo: "./assets/game.png"
+    },
+    {
+        name: "Safe Website",
+        photo: "./assets/safe.png"
+    },
+    {
+        name: "Submarine Website",
+        photo: "./assets/submarine.png"
+    }
+]
+
+printCard(portfolioCard);
+
+function printCard (portfolioCard) {
+
+    for (let i=0; i<portfolioCard.length; i++) {
+
+        document.getElementById("cardContainer").innerHTML += 
+        `
+        <div class="col-12 col-md-6 col-xl-4">
+
+        <div class="card my-3">
+            <img src="${portfolioCard[i].photo}" class="card-img-top" alt="Safe">
+            <div class="card-body">
+                <h5 class="card-title">${portfolioCard[i].name}</h5>
+                <a href="#" class="btn btn-info mx-2">Preview</a>
+                <a href="#" class="btn btn-outline-info mx-2">Visite Site</a>
+            </div>
+        </div>
+
+        </div>
+        `
+
+    };
+
+}
+
+
+
+
+
+
+
+
+
+
 
 function submitForm(event){
     event.preventDefault();
