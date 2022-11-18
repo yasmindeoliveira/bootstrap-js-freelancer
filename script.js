@@ -33,9 +33,7 @@ function calcoloLavoro (){
             work = 33.6;
             break;
 
-        default:
-            console.log("Pedra ha sempre RAGIONE!!!!");
-    };
+        };
 
     console.log(work);
     
@@ -50,5 +48,5 @@ function calcoloPrezzi (ore, lavoro){
 
 function sconto (){
 
-    
+
 }
